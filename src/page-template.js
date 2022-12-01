@@ -26,9 +26,15 @@ function generateTeam (team) {
             <div class="row">
                 <div class="team-area col-12 d-flex justify-content-center">
                     ${team.map(employee => {
-                        return `<div>${
-                            employee.getRole()
-                        }</div>`
+                        return `<div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h2 class="card-title">${employee.getName()}</h2>
+                          <h2 class="card-title">${employee.getRole()}</h2>
+                          <p class="card-text">ID: ${employee.getId()}</p>
+                          <p class="card-text">Email: ${employee.getEmail()}</p>
+                          <p class="card-text">${employee.getRole() === "Engineer"?"Github: " + employee.getGithub():employee.getRole()=== "Manager"?"Office Number: " + employee.getOfficeNumber():"School: " + employee.getSchool()}</p>
+                        </div>
+                      </div>`
                     }).join("")}
                     
                 </div>
